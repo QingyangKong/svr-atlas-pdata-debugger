@@ -1,0 +1,30 @@
+Warning: This is a nightly build of Foundry. It is recommended to use the latest stable version. To mute this warning set `FOUNDRY_DISABLE_NIGHTLY_WARNING` in your environment. 
+
+No files changed, compilation skipped
+2026-05-07T08:22:49.574723Z ERROR sharedbackend: Failed to send/recv `basic` err=failed to get account for 0x000000000000000000000000000000000000006C: HTTP error 500 with body: {"id":20,"jsonrpc":"2.0","error":{"message":"Temporary internal error. Please retry, trace-id: d13566efdd917dc22e5249387856f00d","code":19}} address=0x000000000000000000000000000000000000006C
+
+Ran 1 test for test/pdata0505.t.sol:PDataReplay_test
+[FAIL: vm.mockCall: failed to get account for 0x000000000000000000000000000000000000006C: HTTP error 500 with body: {"id":20,"jsonrpc":"2.0","error":{"message":"Temporary internal error. Please retry, trace-id: d13566efdd917dc22e5249387856f00d","code":19}}] test_replay() (gas: 5104)
+Traces:
+  [5104] PDataReplay_test::test_replay()
+    ├─ [0] VM::txGasPrice(30039000 [3.003e7])
+    │   └─ ← [Return]
+    ├─ [0] VM::mockCall(0x000000000000000000000000000000000000006C, 0x02199f34, 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000)
+    │   └─ ← [Revert] vm.mockCall: failed to get account for 0x000000000000000000000000000000000000006C: HTTP error 500 with body: {"id":20,"jsonrpc":"2.0","error":{"message":"Temporary internal error. Please retry, trace-id: d13566efdd917dc22e5249387856f00d","code":19}}
+    └─ ← [Revert] vm.mockCall: failed to get account for 0x000000000000000000000000000000000000006C: HTTP error 500 with body: {"id":20,"jsonrpc":"2.0","error":{"message":"Temporary internal error. Please retry, trace-id: d13566efdd917dc22e5249387856f00d","code":19}}
+
+Backtrace:
+  at VM.mockCall
+  at PDataReplay_test.test_replay
+
+Suite result: FAILED. 0 passed; 1 failed; 0 skipped; finished in 7.54s (1.02s CPU time)
+
+Ran 1 test suite in 9.09s (7.54s CPU time): 0 tests passed, 1 failed, 0 skipped (1 total tests)
+
+Failing tests:
+Encountered 1 failing test in test/pdata0505.t.sol:PDataReplay_test
+[FAIL: vm.mockCall: failed to get account for 0x000000000000000000000000000000000000006C: HTTP error 500 with body: {"id":20,"jsonrpc":"2.0","error":{"message":"Temporary internal error. Please retry, trace-id: d13566efdd917dc22e5249387856f00d","code":19}}] test_replay() (gas: 5104)
+
+Encountered a total of 1 failing tests, 0 tests succeeded
+
+Tip: Run `forge test --rerun` to retry only the 1 failed test
